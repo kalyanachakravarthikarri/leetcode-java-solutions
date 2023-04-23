@@ -1,6 +1,6 @@
-package com.leetcode.java.linkedlist;
+package com.leetcode.java.linkedlist.utils;
 
-public class LinkedListTestUtils {
+public class LinkedListUtils {
   public static ListNode convertArrayToList(int[] arr) {
     if (arr == null || arr.length == 0) {
       return null;

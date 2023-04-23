@@ -3,6 +3,9 @@ package com.leetcode.java.linkedlist;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+import com.leetcode.java.linkedlist.utils.LinkedListUtils;
+import com.leetcode.java.linkedlist.utils.ListNode;
+
 public class RemoveNthNodeFromEndOfListTest {
 
   private static RemoveNthNodeFromEndOfList removeNthNodeFromEndOfList = new RemoveNthNodeFromEndOfList();
@@ -18,7 +21,7 @@ public class RemoveNthNodeFromEndOfListTest {
 
   @Test
   public void testWithInput1(){
-    ListNode node = LinkedListTestUtils.convertArrayToList(new int[]{1,2,3,4,5});
+    ListNode node = LinkedListUtils.convertArrayToList(new int[]{1,2,3,4,5});
     ListNode result = removeNthNodeFromEndOfList.removeNthFromEnd(node, 2);
     assertNotNull(result);
     assertEquals(1, result.val);
@@ -30,14 +33,14 @@ public class RemoveNthNodeFromEndOfListTest {
 
   @Test
   public void testWithInput2(){
-    ListNode node = LinkedListTestUtils.convertArrayToList(new int[]{1});
+    ListNode node = LinkedListUtils.convertArrayToList(new int[]{1});
     ListNode result = removeNthNodeFromEndOfList.removeNthFromEnd(node, 1);
     assertNull(result);
   }
 
   @Test
   public void testWithInput3(){
-    ListNode node = LinkedListTestUtils.convertArrayToList(new int[]{1,2});
+    ListNode node = LinkedListUtils.convertArrayToList(new int[]{1,2});
     ListNode result = removeNthNodeFromEndOfList.removeNthFromEnd(node, 1);
     assertNotNull(result);
     assertEquals(1, result.val);
@@ -46,7 +49,7 @@ public class RemoveNthNodeFromEndOfListTest {
 
   @Test
   public void testWithInput4(){
-    ListNode node = LinkedListTestUtils.convertArrayToList(new int[]{1,2});
+    ListNode node = LinkedListUtils.convertArrayToList(new int[]{1,2});
     ListNode result = removeNthNodeFromEndOfList.removeNthFromEnd(node, 2);
     assertNotNull(result);
     assertEquals(2, result.val);

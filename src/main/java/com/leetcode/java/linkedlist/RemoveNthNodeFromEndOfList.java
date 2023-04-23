@@ -1,5 +1,7 @@
 package com.leetcode.java.linkedlist;
 
+import com.leetcode.java.linkedlist.utils.ListNode;
+
 public class RemoveNthNodeFromEndOfList {
   public ListNode removeNthFromEnd(ListNode head, int n) {
     if(n <= 0){

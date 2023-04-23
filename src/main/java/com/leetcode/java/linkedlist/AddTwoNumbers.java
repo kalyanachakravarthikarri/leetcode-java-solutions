@@ -1,5 +1,7 @@
 package com.leetcode.java.linkedlist;
 
+import com.leetcode.java.linkedlist.utils.ListNode;
+
 public class AddTwoNumbers {
   public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
     ListNode dummy = new ListNode(0);
@@ -17,22 +19,5 @@ public class AddTwoNumbers {
     }
 
     return dummy.next;
-  }
-}
-
-class ListNode {
-  int val;
-  ListNode next;
-
-  ListNode() {
-  }
-
-  ListNode(int val) {
-    this.val = val;
-  }
-
-  ListNode(int val, ListNode next) {
-    this.val = val;
-    this.next = next;
   }
 }

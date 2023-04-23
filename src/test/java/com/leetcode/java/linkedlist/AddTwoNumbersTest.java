@@ -27,8 +27,8 @@ public class AddTwoNumbersTest {
 
   @Test
   public void TestMultiNodeList() {
-    ListNode node1 = convertArrayToList(new int[]{2, 4, 3});
-    ListNode node2 = convertArrayToList(new int[]{5,6,4});
+    ListNode node1 = LinkedListTestUtils.convertArrayToList(new int[]{2, 4, 3});
+    ListNode node2 = LinkedListTestUtils.convertArrayToList(new int[]{5,6,4});
     ListNode result = classUnderTest.addTwoNumbers(node1, node2);
     assertNotNull("Result is not null", result);
     assertTrue("result has two nodes", result.next != null);
@@ -40,8 +40,8 @@ public class AddTwoNumbersTest {
 
   @Test
   public void TestMultiNodeList2() {
-    ListNode node1 = convertArrayToList(new int[]{9,9,9,9,9,9,9});
-    ListNode node2 = convertArrayToList(new int[]{9,9,9, 9});
+    ListNode node1 = LinkedListTestUtils.convertArrayToList(new int[]{9,9,9,9,9,9,9});
+    ListNode node2 = LinkedListTestUtils.convertArrayToList(new int[]{9,9,9, 9});
     ListNode result = classUnderTest.addTwoNumbers(node1, node2);
     assertNotNull("Result is not null", result);
     assertTrue("result has two nodes", result.next != null);
@@ -56,24 +56,4 @@ public class AddTwoNumbersTest {
 
     assertEquals(result.next.next.next.next.next.next.next.next, null);
   }
-
-  private ListNode convertArrayToList(int[] arr) {
-    if (arr == null || arr.length == 0) {
-      return null;
-    }
-
-    ListNode result = null;
-    ListNode current = result;
-    for(int i : arr){
-      if(current == null){
-        current = new ListNode(i);
-        result = current;
-      }else{
-        current.next = new ListNode(i);
-        current = current.next;
-      }
-    }
-    return result;
-  }
-
 }

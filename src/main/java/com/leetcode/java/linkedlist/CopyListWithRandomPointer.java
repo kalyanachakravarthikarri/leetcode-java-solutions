@@ -11,11 +11,13 @@ public class CopyListWithRandomPointer {
     Node result = new Node(-1);
     Node dest = result;
     Node src = head;
+    Node tmp = null;
     Map<Node, Node> mappings = new HashMap<>();
     while(src != null){
-      dest.next = new Node(src.val);
+      tmp = new Node(src.val);
+      mappings.put(src, tmp);
+      dest.next = tmp;
       dest = dest.next;
-      mappings.put(src, dest);
       src = src.next;
     }
     src = head;
@@ -27,8 +29,8 @@ public class CopyListWithRandomPointer {
     }
 
     return result.next;
-  } result.next;
-  }}
+  }
+}
 
 class Node {
   int val;

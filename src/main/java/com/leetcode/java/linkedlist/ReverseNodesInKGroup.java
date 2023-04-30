@@ -4,47 +4,33 @@ import com.leetcode.java.linkedlist.utils.ListNode;
 
 public class ReverseNodesInKGroup {
   public ListNode reverseKGroup(ListNode head, int k) {
-    if (head == null || k <= 1) {
-      return head;
+    //handle null and single noded lists
+    if(head == null || head.next == null){
+        return head;
     }
-
-    ListNode current = head;
-    ListNode next = null;
+    //Declarations
+    ListNode curr = head;
     ListNode prev = null;
-
-    int count = 0;
-
-    /*Don't alter the list in case we have less than k elements */
+    ListNode temp = null;
+    //check if next block has k elements
     for(int i=0; i<k; i++){
-      if(current == null){
+      if(curr == null){
         return head;
       }
-      current = current.next;
-      prev = current;
+      curr = curr.next;
     }
-
-    current = head;
-    prev = null;
-
-    /* Reverse first k nodes of linked list */
-    while (count < k && current != null) {
-      next = current.next;
-      current.next = prev;
-      prev = current;
-      current = next;
-      count++;
+    //Reverse K nodes
+    curr = head;
+    for(int i=0; i<k && curr != null; i++){
+      temp = curr.next;
+      curr.next = prev;
+      prev = curr;
+      curr = temp;
     }
-
-    /*
-     * next is now a pointer to (k+1)th node
-     * Recursively call for the list starting from
-     * current. And make rest of the list as next of
-     * first node
-     */
-    if (next != null)
-      head.next = reverseKGroup(next, k);
-
-    // prev is now head of input list
+    //Set the last node in current block to first node in next block
+    head.next = reverseKGroup(curr, k);
+    //return result
     return prev;
+  }return prev;
   }
 }

@@ -26,4 +26,21 @@ public class SwapNodesInPairs {
     
     return dummy.next;
   }
+
+  public ListNode swapPairsRecursively(ListNode head) {
+    //handle null and single noded list
+    if(head == null || head.next == null){
+        return head;
+    }
+    //initialization
+    ListNode curr = head;
+    ListNode next = head.next;
+    //swap nodes
+    ListNode temp = next.next;
+    next.next = curr;
+    //continue swapping with next nodes
+    curr.next = swapPairsRecursively(temp);
+    //return result
+    return next;
+}
 }

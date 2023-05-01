@@ -4,32 +4,39 @@ import com.leetcode.java.linkedlist.utils.ListNode;
 
 public class MergeKSortedLists {
   public ListNode mergeKLists(ListNode[] lists) {
-    if(lists == null || lists.length == 0){
-        return null;
+    // handle empty list and list with one list
+    if (lists == null || lists.length == 0) {
+      return null;
     }
+    // intialize
     ListNode result = new ListNode(-1);
     ListNode current = result;
     boolean completed = true;
+    // iterate until we have traversed all the nodes of all the lists
     while (true) {
-      int nextListIndex = -1, nextSmallestNode = Integer.MAX_VALUE;
+      int nextIndex = -1, nextVal = Integer.MAX_VALUE;
       completed = true;
-      for(int i=0; i<lists.length; i++){
-        if(lists[i] != null){
+      // find next least value among all the lists
+      for (int i = 0; i < lists.length; i++) {
+        if (lists[i] != null) {
           completed = false;
-          if(lists[i].val <= nextSmallestNode){          
-            nextSmallestNode = lists[i].val;
-            nextListIndex = i;
+          if (nextVal > lists[i].val) {
+            nextIndex = i;
+            nextVal = lists[i].val;
           }
         }
       }
-      if(nextListIndex > -1){
-        current.next = lists[nextListIndex];
+      // set next node in merged list and advance the input list
+      if (nextIndex > -1) {
+        current.next = lists[nextIndex];
         current = current.next;
-        lists[nextListIndex] = lists[nextListIndex].next; 
+        lists[nextIndex] = lists[nextIndex].next;
       }
 
-      if(completed) break;
+      if (completed)
+        break;
     }
+    // return result
     return result.next;
   }
 }

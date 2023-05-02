@@ -31,6 +31,5 @@ public class ReverseNodesInKGroup {
     head.next = reverseKGroup(curr, k);
     //return result
     return prev;
-  }return prev;
   }
 }

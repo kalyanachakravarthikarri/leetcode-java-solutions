@@ -13,18 +13,19 @@ public class RemoveDuplicatesFromSortedList2 {
     }
     ListNode curr = head;
     ListNode result = new ListNode(-1);
-    ListNode res = result;
+    ListNode curr_dest = result;
     Map<Integer, Integer> frequency = new HashMap<>();
+    //populate frequency map
     while (curr != null) {
       frequency.put(curr.val, frequency.getOrDefault(curr.val, 0) + 1);
       curr = curr.next;
     }
     curr = head;
-    // Iterate over the list
+    //set the nodes to result
     while (curr != null) {
       if (frequency.get(curr.val) == 1) {
-        res.next = new ListNode(curr.val);
-        res = res.next;
+        curr_dest.next = new ListNode(curr.val);
+        curr_dest = curr_dest.next;
       }
       curr = curr.next;
     }

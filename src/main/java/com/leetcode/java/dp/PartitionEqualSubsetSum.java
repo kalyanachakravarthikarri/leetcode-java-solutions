@@ -23,7 +23,6 @@ public class PartitionEqualSubsetSum {
   }
 
   private boolean canPartition(int[] nums, int index, int sum) {
-    System.out.println(index + " -- "+ sum);
     if (sum == 0) {
       return true;
     }

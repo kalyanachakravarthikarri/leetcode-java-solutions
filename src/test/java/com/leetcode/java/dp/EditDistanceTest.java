@@ -1,10 +1,6 @@
 package com.leetcode.java.dp;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-import java.util.List;
-
 import org.junit.Test;
 
 public class EditDistanceTest {
@@ -20,5 +16,11 @@ public class EditDistanceTest {
   public void testInput2(){
     int result = classUnderTest.minDistance("intention", "execution");
     assertEquals(result, 5);
+  }
+
+  @Test
+  public void testInput3(){
+    int result = classUnderTest.minDistance("", "a");
+    assertEquals(result, 1);
   }
 }

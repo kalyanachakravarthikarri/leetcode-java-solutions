@@ -2,11 +2,11 @@ package com.leetcode.java.dp;
 
 public class EditDistance {
   public int minDistance(String word1, String word2) {
-    if(word1 == null){
-      return word1.length();
-    }
-    if(word2 == null){
+    if(word1 == null || word1.length() == 0){
       return word2.length();
+    }
+    if(word2 == null || word2.length() == 0){
+      return word1.length();
     }
 
     int M = word1.length(); int N = word2.length();

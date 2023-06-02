@@ -1,7 +1,12 @@
 package com.leetcode.java.dp;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class PalindromPartitioning2 {
 
+  Map<String, Integer> cache = new HashMap<>();
+  
   public int minCut(String s) {
     return minCut(s, 0, 1);
   }
@@ -11,10 +16,19 @@ public class PalindromPartitioning2 {
       return isPalindrome(s.substring(st, end)) ? 0 : Integer.MAX_VALUE;
     }
 
+    String key = st+"_"+end;
+    if(cache.containsKey(key)){
+      return cache.get(key);
+    }
+
     if(isPalindrome(s.substring(st, end))){
-      return Math.min(1+minCut(s, end, end+1), minCut(s, st, end+1));
+      int result = Math.min(1+minCut(s, end, end+1), minCut(s, st, end+1));
+      cache.put(key, result);
+      return result;
     }else{
-      return minCut(s, st, end+1);
+      int result = minCut(s, st, end+1);
+      cache.put(key, result);
+      return result;
     }
 
   }

@@ -23,5 +23,6 @@ public class PalindromPartitioning2Test {
   public void testInput3(){
     int result = classUnderTest.minCut("ab");
     assertEquals(1, result);
+    
   }
 }

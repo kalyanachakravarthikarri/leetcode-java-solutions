@@ -1,8 +1,10 @@
-package com.leetcode.java.dp;
+package com.leetcode.java.dp.knapsack;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+
+import com.leetcode.java.dp.knapsack.TargetSum;
 
 public class TargetSumTest {
 

@@ -1,4 +1,4 @@
-package com.leetcode.java.dp;
+package com.leetcode.java.dp.knapsack;
 
 public class TargetSum {
   public int findTargetSumWays(int[] nums, int target) {

@@ -1,4 +1,4 @@
-package com.leetcode.java.dp;
+package com.leetcode.java.dp.knapsack;
 
 import java.util.HashMap;
 import java.util.Map;
